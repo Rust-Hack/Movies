@@ -7,11 +7,12 @@ import RatedMovies from '../components/RatedMovies';
 const SearchPage = () => {
     return (
         <div className='separationPage'>
-            <SideBar/>
+            {/* <SideBar/>
             <Routes>
                 <Route path='/Movies' element={<Movies/>}/>
                 <Route path='/RatedMovies' element={<RatedMovies/>}/>
-            </Routes>
+            </Routes> */}
+            <h1>hello</h1>
             {/* <Button fullWidth>Full width button</Button> */}
         </div>
 

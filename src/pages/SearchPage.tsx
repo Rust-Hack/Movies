@@ -1,8 +1,8 @@
-import SideBar from '../components/SideBar';
-import '../styles/SearchPage.css'
-import Movies from '../components/Movies';
-import { Route, Routes } from 'react-router-dom';
-import RatedMovies from '../components/RatedMovies';
+// import SideBar from '../components/SideBar';
+// import '../styles/SearchPage.css'
+// import Movies from '../components/Movies';
+// import { Route, Routes } from 'react-router-dom';
+// import RatedMovies from '../components/RatedMovies';
 
 const SearchPage = () => {
     return (

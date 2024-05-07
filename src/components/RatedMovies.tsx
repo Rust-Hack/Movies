@@ -1,5 +1,5 @@
 import { Tabs } from "@mantine/core";
-import { IconPhoto, IconMessageCircle, IconSettings } from '@tabler/icons-react';
+// import { IconPhoto, IconMessageCircle, IconSettings } from '@tabler/icons-react';
 
 const RatedMovies = () => {
 

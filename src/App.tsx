@@ -6,11 +6,12 @@ import { BrowserRouter } from "react-router-dom";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <MantineProvider>
-        <SearchPage/>
-      </MantineProvider>
-    </BrowserRouter>
+    // <BrowserRouter>
+    //   <MantineProvider>
+    //     <SearchPage/>
+    //   </MantineProvider>
+    // </BrowserRouter>
+    <h1>hello</h1>
   )
 }
 

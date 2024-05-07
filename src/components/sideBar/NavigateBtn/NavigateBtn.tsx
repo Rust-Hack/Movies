@@ -1,5 +1,5 @@
 import { Tabs } from '@mantine/core';
-import '../../styles/sideBar/NavigateBtn.css'
+import './NavigateBtn.css'
 import { useNavigate, useParams } from 'react-router-dom';
 
 const NavigateBtn = () => {

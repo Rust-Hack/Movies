@@ -1,5 +1,5 @@
-import image from '../../image/Logo.svg'
-import '../../styles/sideBar/Logo.css'
+import image from '../../../image/Logo.svg'
+import './Logo.css'
 
 const Logo = () => {
     return (

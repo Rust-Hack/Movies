@@ -1,6 +1,6 @@
-import Logo from "./sideBar/Logo";
-import '../styles/sideBar/sideBar.css'
-import NavigateBtn from "./sideBar/NavigateBtn";
+import Logo from "./sideBar/Logo/Logo";
+import './sideBar.css'
+import NavigateBtn from "./sideBar/NavigateBtn/NavigateBtn";
 
 const SideBar = () => {
     return (

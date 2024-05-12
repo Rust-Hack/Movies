@@ -12,6 +12,8 @@
     "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
+    "@mantine/core": "^7.9.1",
+    "@mantine/hooks": "^7.9.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

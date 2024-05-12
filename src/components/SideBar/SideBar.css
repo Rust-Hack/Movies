@@ -1,0 +1,9 @@
+.sideBar {
+    height: 2644px;
+    height: 100%;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    background-color: rgb(242, 235, 249);
+}

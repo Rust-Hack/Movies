@@ -1,0 +1,13 @@
+.blockLogo {
+    display: flex;
+    width: 179px;
+    height: 36px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logoName {
+    color: #9854F6;
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
+}

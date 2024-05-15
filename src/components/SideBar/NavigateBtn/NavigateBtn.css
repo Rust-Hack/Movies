@@ -1,13 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 .tabList {
-    width: 232px;
+    width: 280px;
     font-family: "Inter", sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 140%;
     letter-spacing: 0%;
     text-align: left;
+    background-color: rgb(242, 235, 249);
+    
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
 }
 
 .tabList *[data-active][data-active] {

@@ -1,0 +1,27 @@
+@import url(../../../fonts//fonts.css);
+
+.rating {
+    width: 282px;
+}
+
+.titleFilter {
+    /* Text base M/Bold */
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 140%;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.yearFilter {
+    display: flex;
+    gap: 8px;
+}
+
+
+
+/* .section {
+    background-color: black;
+} */

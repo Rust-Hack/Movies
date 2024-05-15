@@ -1,0 +1,22 @@
+@import url(../../fonts/fonts.css);
+
+.MoviesBlock {
+    width: 100%;
+    padding: 40px 90px;
+}
+
+.title {
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 140%;
+    letter-spacing: 0%;
+    text-align: left;
+    margin-bottom: 41px;
+}
+
+.filter {
+    display: flex;
+    gap: 16px;
+}

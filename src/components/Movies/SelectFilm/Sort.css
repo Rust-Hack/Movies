@@ -1,0 +1,10 @@
+.sort {
+    width: 284px;
+}
+
+.sortBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-top: 24px;   
+}

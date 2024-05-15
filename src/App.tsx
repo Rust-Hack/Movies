@@ -1,16 +1,19 @@
 import './app.css'
-import SideBar from './components/SideBar/SideBar';
 import { MantineProvider } from "@mantine/core";
 import '@mantine/core/styles.css';
+import HomeArrow from './pages/HomeArrow';
+import { BrowserRouter } from 'react-router-dom';
 
 
 function App() {
 
   return (
     <div>
+      <BrowserRouter>
         <MantineProvider>
-          <SideBar/>
+            <HomeArrow/>
         </MantineProvider>
+      </BrowserRouter>
     </div>
   )
 }

@@ -3,7 +3,7 @@ import './HomeArrow.css'
 
 const HomeArrow = () => {
     return (
-        <div className="home">
+        <div>
             <SideBar/>
         </div>
     )

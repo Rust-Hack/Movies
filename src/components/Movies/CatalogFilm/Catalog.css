@@ -1,0 +1,51 @@
+.flexBlockMovieCard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.blockMovieCard {
+    padding: 24px;
+    border-radius: 12px;
+    background-color: white;
+    display: flex;
+    gap: 16px;
+}
+
+.informAboutFilm {
+    max-width: 263px;
+    width: 100%;
+}
+
+.nameFilm {
+    color: rgb(152, 84, 246);
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.dateFont {
+    color: rgb(123, 124, 136);
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+.star {
+    /* Yellow */
+    border: 2px solid rgb(250, 176, 5);
+    /* Yellow */
+    background: rgb(250, 176, 5);
+}
+
+.blockRatingFilm {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

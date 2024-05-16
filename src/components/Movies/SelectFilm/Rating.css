@@ -1,7 +1,7 @@
 @import url(../../../fonts//fonts.css);
 
 .rating {
-    width: 282px;
+    width: 283.66px;
 }
 
 .titleFilter {
@@ -18,6 +18,10 @@
 .yearFilter {
     display: flex;
     gap: 8px;
+}
+
+.filterSize {
+    width: 283px;
 }
 
 

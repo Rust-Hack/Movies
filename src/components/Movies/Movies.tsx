@@ -1,3 +1,4 @@
+import CatalogFilm from './CatalogFilm/CatalogFilm';
 import './Movies.css'
 import RatingFilm from './SelectFilm/RatingFilm';
 import Reset from './SelectFilm/Reset';
@@ -16,6 +17,9 @@ const Movies = () => {
             </div>
             <div>
                 <Sort/>
+            </div>
+            <div>
+                <CatalogFilm/>
             </div>
         </div>
     )

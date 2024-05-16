@@ -10,6 +10,7 @@ const SelectFilm = (props: Iprops) => {
     <div>
       <h1 className='titleFilter'>{props.title}</h1>
       <Select
+      className='filterSize'
       radius="md"
       placeholder={props.select}
       data={['React', 'Angular', 'Vue', 'Svelte']}

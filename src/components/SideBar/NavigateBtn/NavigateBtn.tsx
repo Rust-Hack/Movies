@@ -18,7 +18,7 @@ const NavigateBtn = () => {
                         RatedMovies
                     </Tabs.Tab>
                 </Tabs.List>
-                <Tabs.Panel value='Movies'>
+                <Tabs.Panel value='Movies' className='MovieRatedMovieList'>
                     <Movies/>
                 </Tabs.Panel>
                 <Tabs.Panel value='RatedMovies'>

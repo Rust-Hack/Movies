@@ -1,58 +1,81 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import star from '../../../images/star.svg'
 import './Catalog.css'
+import SelectRating from "./SelectRating/SelectRating";
 
-const CatalogFilm = () => {
-    const [ getMovie, setGetMovie ] = useState([])
-    
-    const movie = () => {
-        fetch(
-            'https://api.themoviedb.org/3/discover/movie?api_key=ffcdeae851e10aa8f18567123ef81640'
-        ).then(response => response.json())
-        .then(json => setGetMovie(json.results))
+interface Movie {
+    poster_path: string;
+    original_title: string;
+    release_date: string;
+    vote_average: number;
+    vote_count: number;
+    genre_ids: number[];
+}
+
+interface Genre {
+    id: number;
+    name: string;
+}
+
+const CatalogFilm: React.FC = () => {
+    const [movies, setMovies] = useState<Movie[]>([]);
+    const [genres, setGenres] = useState<Genre[]>([]);
+
+    useEffect(() => {
+        fetchMovies();
+        fetchGenres();
+    }, []);
+
+    const fetchMovies = () => {
+        fetch('https://api.themoviedb.org/3/discover/movie?api_key=ffcdeae851e10aa8f18567123ef81640')
+        .then(response => response.json())
+        .then(data => setMovies(data.results))
         .catch(err => console.error(err));
     }
 
-    useEffect(() => {
-        movie();
-    }, []);
+    const fetchGenres = () => {
+        fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=ffcdeae851e10aa8f18567123ef81640')
+        .then(response => response.json())
+        .then(data => setGenres(data.genres))
+        .catch(err => console.error(err));
+    }
 
-    const options = {method: 'GET', headers: {accept: 'application/json'}};
+    const getGenreNames = (genreIds: number[]): string[] => {
+        return genreIds.map(id => {
+            const genre = genres.find(genre => genre.id === id);
+            return genre ? genre.name : '';
+        });
+    }
 
-    fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=ffcdeae851e10aa8f18567123ef81640')
-    .then(response => response.json())
-    .then(response => console.log(response))
-    .catch(err => console.error(err));
-
-  return (
-    <div className="flexBlockMovieCard">
-        {getMovie.map((item, index) => 
-            <div className="blockMovieCard" key={index}>
-                <div>
-                    <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} width='119px'/>
-                </div>
-                <div className="informAboutFilm">
+    return (
+        <div className="flexBlockMovieCard">
+            {movies.map((movie, index) => 
+                <div className="blockMovieCard" key={index}>
                     <div>
-                        <h1 className="nameFilm">{item.original_title}</h1>
-                        <p className="dateFont">{item.release_date.slice(0,4)}</p>
-                        <div className="blockRatingFilm">
-                            <img src={star}/>
-                            <p>{item.vote_average}</p>
-                            <p>{`(${item.vote_count})`}</p>
-                        </div>
-                        <div>
-                            <p>Genres</p>
-                            <p>{item.with_genres}</p>
+                        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} width='119px' alt={`${movie.original_title} Poster`} />
+                    </div>
+                    <div className="informAboutFilm">
+                        <div className="cardInformation">
+                            <div className="titleRatingYear">
+                                <h1 className="nameFilm">{movie.original_title}</h1>
+                                <p className="dateFont">{movie.release_date.slice(0,4)}</p>
+                                <div className="blockRatingFilm">
+                                    <img src={star} alt="Star Icon" />
+                                    <p>{movie.vote_average}</p>
+                                    <p>{`(${movie.vote_count})`}</p>
+                                </div>
+                            </div>
+                            <div className="blockGenres">
+                                <p className="titleGenres">Genres</p>
+                                <p className="genresName">{getGenreNames(movie.genre_ids).join(', ')}</p>
+                            </div>
                         </div>
                     </div>
-
+                    <SelectRating/>
                 </div>
-                <div></div>
-            </div>
-        )}
-        {/* {getMovie.map((item) => <img src={`https://image.tmdb.org/t/p/w500}${item.poster_path}`}/>)} */}
-    </div>
-  )
+            )}
+        </div>
+    );
 }
 
-export default CatalogFilm
+export default CatalogFilm;

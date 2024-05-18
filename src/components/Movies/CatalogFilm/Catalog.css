@@ -9,12 +9,25 @@
     border-radius: 12px;
     background-color: white;
     display: flex;
-    gap: 16px;
+    justify-content: space-between;
 }
 
 .informAboutFilm {
     max-width: 263px;
     width: 100%;
+}
+
+.cardInformation {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.titleRatingYear {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .nameFilm {
@@ -48,4 +61,29 @@
     display: flex;
     align-items: center;
     gap: 8px;
+}
+
+.blockGenres {
+    display: flex;
+    gap: 8px;
+}
+
+.titleGenres {
+    color: rgb(123, 124, 136);
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.genresName {
+    color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: left;
 }

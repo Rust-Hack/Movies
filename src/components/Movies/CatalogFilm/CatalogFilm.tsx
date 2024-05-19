@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import star from '../../../images/star.svg'
-import './Catalog.css'
+import star from '../../../images/star.svg';
+import './Catalog.css';
 import SelectRating from "./SelectRating/SelectRating";
 
 interface Movie {
@@ -17,27 +17,53 @@ interface Genre {
     name: string;
 }
 
-const CatalogFilm: React.FC = () => {
+interface CatalogFilmProps {
+    selectedGenre: string | null;
+    selectedYear: string | null;
+}
+
+const CatalogFilm: React.FC<CatalogFilmProps> = ({ selectedGenre, selectedYear }) => {
     const [movies, setMovies] = useState<Movie[]>([]);
     const [genres, setGenres] = useState<Genre[]>([]);
+    const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]);
 
     useEffect(() => {
         fetchMovies();
         fetchGenres();
     }, []);
 
+    useEffect(() => {
+        filterMovies();
+    }, [selectedGenre, selectedYear, movies]);
+
     const fetchMovies = () => {
         fetch('https://api.themoviedb.org/3/discover/movie?api_key=ffcdeae851e10aa8f18567123ef81640')
-        .then(response => response.json())
-        .then(data => setMovies(data.results))
-        .catch(err => console.error(err));
+            .then(response => response.json())
+            .then(data => {
+                setMovies(data.results);
+                setFilteredMovies(data.results);
+            })
+            .catch(err => console.error(err));
     }
 
     const fetchGenres = () => {
         fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=ffcdeae851e10aa8f18567123ef81640')
-        .then(response => response.json())
-        .then(data => setGenres(data.genres))
-        .catch(err => console.error(err));
+            .then(response => response.json())
+            .then(data => setGenres(data.genres))
+            .catch(err => console.error(err));
+    }
+
+    const filterMovies = () => {
+        let filtered = movies;
+
+        if (selectedGenre) {
+            filtered = filtered.filter(movie => movie.genre_ids.includes(parseInt(selectedGenre)));
+        }
+        if (selectedYear) {
+            filtered = filtered.filter(movie => movie.release_date.slice(0, 4) === selectedYear);
+        }
+
+        setFilteredMovies(filtered);
     }
 
     const getGenreNames = (genreIds: number[]): string[] => {
@@ -49,7 +75,7 @@ const CatalogFilm: React.FC = () => {
 
     return (
         <div className="flexBlockMovieCard">
-            {movies.map((movie, index) => 
+            {filteredMovies.map((movie, index) => 
                 <div className="blockMovieCard" key={index}>
                     <div>
                         <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} width='119px' alt={`${movie.original_title} Poster`} />

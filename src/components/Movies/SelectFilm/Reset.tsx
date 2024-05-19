@@ -1,11 +1,23 @@
-import './Reset.css'
+import './Reset.css';
 
-const Reset = () => {
-  return (
-    <div className='resetBlock'>
-      <button className='reset'>Reset filters</button>
-    </div>
-  )
+interface ResetProps {
+    onReset: () => void;
+    onGenreReset: () => void;
+    onYearReset: () => void;
 }
 
-export default Reset
+const Reset: React.FC<ResetProps> = ({ onReset, onGenreReset, onYearReset }) => {
+  const reset = () => {
+    onReset();
+    onGenreReset();
+    onYearReset();
+  };
+
+  return (
+    <div className='resetBlock'>
+      <button className='reset' onClick={reset}>Reset filters</button>
+    </div>
+  );
+};
+
+export default Reset;

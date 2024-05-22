@@ -24,4 +24,4 @@ const RatingFilm = () => {
   )
 }
 
-export default RatingFilm
+export default RatingFilm;

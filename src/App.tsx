@@ -2,7 +2,7 @@ import './app.css'
 import { MantineProvider } from "@mantine/core";
 import '@mantine/core/styles.css';
 import HomeArrow from './pages/HomeArrow';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter} from 'react-router-dom';
 
 
 function App() {

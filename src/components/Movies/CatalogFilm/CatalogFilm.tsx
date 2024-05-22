@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import star from '../../../images/star.svg';
+import noSearchFilm from '../../../images/noSearchFilm.svg'
 import './Catalog.css';
 import SelectRating from "./SelectRating/SelectRating";
 
@@ -42,6 +43,7 @@ const CatalogFilm: React.FC<CatalogFilmProps> = ({ selectedGenre, selectedYear }
             .then(data => {
                 setMovies(data.results);
                 setFilteredMovies(data.results);
+                console.log(data.vote_average.lte)
             })
             .catch(err => console.error(err));
     }
@@ -75,30 +77,34 @@ const CatalogFilm: React.FC<CatalogFilmProps> = ({ selectedGenre, selectedYear }
 
     return (
         <div className="flexBlockMovieCard">
-            {filteredMovies.map((movie, index) => 
-                <div className="blockMovieCard" key={index}>
-                    <div>
-                        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} width='119px' alt={`${movie.original_title} Poster`} />
-                    </div>
-                    <div className="informAboutFilm">
-                        <div className="cardInformation">
-                            <div className="titleRatingYear">
-                                <h1 className="nameFilm">{movie.original_title}</h1>
-                                <p className="dateFont">{movie.release_date.slice(0,4)}</p>
-                                <div className="blockRatingFilm">
-                                    <img src={star} alt="Star Icon" />
-                                    <p>{movie.vote_average}</p>
-                                    <p>{`(${movie.vote_count})`}</p>
+            {filteredMovies.length > 0 ? (
+                filteredMovies.map((movie, index) => (
+                    <div className="blockMovieCard" key={index} >
+                        <div>
+                            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} width='119px' alt={`${movie.original_title} Poster`} />
+                        </div>
+                        <div className="informAboutFilm">
+                            <div className="cardInformation">
+                                <div className="titleRatingYear">
+                                    <h1 className="nameFilm">{movie.original_title}</h1>
+                                    <p className="dateFont">{movie.release_date.slice(0, 4)}</p>
+                                    <div className="blockRatingFilm">
+                                        <img src={star} alt="Star Icon" />
+                                        <p>{movie.vote_average}</p>
+                                        <p>{`(${movie.vote_count})`}</p>
+                                    </div>
+                                </div>
+                                <div className="blockGenres">
+                                    <p className="titleGenres">Genres</p>
+                                    <p className="genresName">{getGenreNames(movie.genre_ids).join(', ')}</p>
                                 </div>
                             </div>
-                            <div className="blockGenres">
-                                <p className="titleGenres">Genres</p>
-                                <p className="genresName">{getGenreNames(movie.genre_ids).join(', ')}</p>
-                            </div>
                         </div>
+                        <SelectRating />
                     </div>
-                    <SelectRating/>
-                </div>
+                ))
+            ) : (
+                <img src={noSearchFilm} className="noSearchFilm" alt="No Search Results" />
             )}
         </div>
     );

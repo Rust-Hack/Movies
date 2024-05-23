@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 interface MovieDetailsProps {
-  // Add the movie details you want to display
+  
 }
 
 const MovieDetails: React.FC<MovieDetailsProps> = () => {
